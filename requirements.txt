@@ -1,0 +1,7 @@
+lightrag-hku>=0.0.1
+google-generativeai>=0.7.0
+tenacity
+python-dotenv
+networkx
+numpy
+aiohttp

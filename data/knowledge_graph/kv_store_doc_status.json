@@ -1,0 +1,53 @@
+{
+  "doc-dcbfd002e14a61aaffb86d7ffeddef18": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "content_summary": "Viêm gan B là một bệnh nhiễm trùng gan do virus viêm gan B (HBV) gây ra.\nTriệu chứng bao gồm vàng da, mệt mỏi, buồn nôn và đau bụng.\nTenofovir là thuốc kháng virus dùng để điều trị viêm gan B mãn tính.\nTuy nhiên, Tenofovir có thể gây tác dụng phụ như...",
+    "content_length": 275,
+    "created_at": "2026-01-20T09:38:24.612661+00:00",
+    "updated_at": "2026-01-20T09:38:58.252149+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260120_163824_35ef8672",
+    "metadata": {
+      "processing_start_time": 1768901904,
+      "processing_end_time": 1768901938
+    }
+  },
+  "doc-1da80ab7d5e9dc4c2df78295fb5e2d98": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "content_summary": "CASE STUDY: DIABETIC KETOACIDOSIS (DKA)\nA 25-year-old patient with Type 1 Diabetes presents with severe nausea, vomiting, and abdominal pain.\nPhysical exam reveals Kussmaul respirations and a fruity breath odor (acetone).\nLab results show high blood ...",
+    "content_length": 488,
+    "created_at": "2026-01-20T10:35:36.695903+00:00",
+    "updated_at": "2026-01-20T10:36:49.835016+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260120_173536_150d5e6b",
+    "metadata": {
+      "processing_start_time": 1768905336,
+      "processing_end_time": 1768905409
+    }
+  },
+  "doc-88c1397985267e906468ad9f26a69621": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "content_summary": "CASE STUDY: DIABETIC KETOACIDOSIS (DKA)\nA 25-year-old patient with Type 1 Diabetes presents with severe nausea, vomiting, and abdominal pain.\nPhysical exam reveals Kussmaul respirations and a fruity breath odor.\nLab results show Hyperglycemia and met...",
+    "content_length": 410,
+    "created_at": "2026-01-20T10:40:45.692596+00:00",
+    "updated_at": "2026-01-20T10:42:55.025090+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260120_174045_14d10e9c",
+    "metadata": {
+      "processing_start_time": 1768905645,
+      "processing_end_time": 1768905775
+    }
+  }
+}

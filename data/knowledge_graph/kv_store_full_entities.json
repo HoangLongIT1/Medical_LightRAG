@@ -1,0 +1,72 @@
+{
+  "doc-dcbfd002e14a61aaffb86d7ffeddef18": {
+    "entity_names": [
+      "Viêm Gan B Mãn Tính",
+      "Đau Bụng",
+      "Tenofovir",
+      "Suy Thận",
+      "Mệt Mỏi",
+      "Vàng Da",
+      "Viêm Gan B",
+      "Gan",
+      "Loãng Xương",
+      "Buồn Nôn",
+      "Virus Viêm Gan B (HBV)"
+    ],
+    "count": 11,
+    "create_time": 1768901938,
+    "update_time": 1768901938,
+    "_id": "doc-dcbfd002e14a61aaffb86d7ffeddef18"
+  },
+  "doc-1da80ab7d5e9dc4c2df78295fb5e2d98": {
+    "entity_names": [
+      "Insulin Infusion",
+      "Fruity Breath Odor",
+      "Potassium Levels",
+      "Physical Exam",
+      "Lab Results",
+      "Hyperglycemia",
+      "Diabetic Ketoacidosis",
+      "IV Fluids",
+      "Vomiting",
+      "Nausea",
+      "Normal Saline",
+      "Abdominal Pain",
+      "Hypokalemia",
+      "Metabolic Acidosis",
+      "Insulin",
+      "Type 1 Diabetes",
+      "Kussmaul Respirations"
+    ],
+    "count": 17,
+    "create_time": 1768905409,
+    "update_time": 1768905409,
+    "_id": "doc-1da80ab7d5e9dc4c2df78295fb5e2d98"
+  },
+  "doc-88c1397985267e906468ad9f26a69621": {
+    "entity_names": [
+      "Fruity Breath Odor",
+      "Vomiting",
+      "Kussmaul Respirations",
+      "Insulin",
+      "Patient",
+      "Normal Saline",
+      "Diabetic Ketoacidosis",
+      "Insulin Infusion",
+      "IV Fluids",
+      "Severe Nausea",
+      "Metabolic Acidosis",
+      "Physical Exam",
+      "Hyperglycemia",
+      "Abdominal Pain",
+      "Type 1 Diabetes",
+      "Lab Results",
+      "Potassium Levels Monitoring",
+      "Hypokalemia"
+    ],
+    "count": 18,
+    "create_time": 1768905775,
+    "update_time": 1768905775,
+    "_id": "doc-88c1397985267e906468ad9f26a69621"
+  }
+}

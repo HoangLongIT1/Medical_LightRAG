@@ -1,0 +1,202 @@
+{
+  "doc-dcbfd002e14a61aaffb86d7ffeddef18": {
+    "relation_pairs": [
+      [
+        "Viêm Gan B",
+        "Đau Bụng"
+      ],
+      [
+        "Gan",
+        "Viêm Gan B"
+      ],
+      [
+        "Mệt Mỏi",
+        "Viêm Gan B"
+      ],
+      [
+        "Tenofovir",
+        "Viêm Gan B Mãn Tính"
+      ],
+      [
+        "Loãng Xương",
+        "Tenofovir"
+      ],
+      [
+        "Viêm Gan B",
+        "Vàng Da"
+      ],
+      [
+        "Buồn Nôn",
+        "Viêm Gan B"
+      ],
+      [
+        "Virus Viêm Gan B (HBV)",
+        "Viêm Gan B"
+      ],
+      [
+        "Suy Thận",
+        "Tenofovir"
+      ]
+    ],
+    "count": 9,
+    "create_time": 1768901938,
+    "update_time": 1768901938,
+    "_id": "doc-dcbfd002e14a61aaffb86d7ffeddef18"
+  },
+  "doc-1da80ab7d5e9dc4c2df78295fb5e2d98": {
+    "relation_pairs": [
+      [
+        "Diabetic Ketoacidosis",
+        "Hyperglycemia"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Metabolic Acidosis"
+      ],
+      [
+        "Hyperglycemia",
+        "Lab Results"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Vomiting"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Nausea"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Normal Saline"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Type 1 Diabetes"
+      ],
+      [
+        "Lab Results",
+        "Metabolic Acidosis"
+      ],
+      [
+        "Hypokalemia",
+        "Insulin"
+      ],
+      [
+        "Kussmaul Respirations",
+        "Physical Exam"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Kussmaul Respirations"
+      ],
+      [
+        "Abdominal Pain",
+        "Diabetic Ketoacidosis"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Fruity Breath Odor"
+      ],
+      [
+        "Fruity Breath Odor",
+        "Physical Exam"
+      ],
+      [
+        "Hyperglycemia",
+        "Insulin"
+      ],
+      [
+        "Lab Results",
+        "Potassium Levels"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Lab Results"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Insulin Infusion"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "IV Fluids"
+      ]
+    ],
+    "count": 19,
+    "create_time": 1768905409,
+    "update_time": 1768905409,
+    "_id": "doc-1da80ab7d5e9dc4c2df78295fb5e2d98"
+  },
+  "doc-88c1397985267e906468ad9f26a69621": {
+    "relation_pairs": [
+      [
+        "Lab Results",
+        "Metabolic Acidosis"
+      ],
+      [
+        "Kussmaul Respirations",
+        "Physical Exam"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Fruity Breath Odor"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Insulin Infusion"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "IV Fluids"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Normal Saline"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Vomiting"
+      ],
+      [
+        "Abdominal Pain",
+        "Diabetic Ketoacidosis"
+      ],
+      [
+        "Hyperglycemia",
+        "Lab Results"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Hyperglycemia"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Kussmaul Respirations"
+      ],
+      [
+        "Hypokalemia",
+        "Insulin"
+      ],
+      [
+        "Hypokalemia",
+        "Potassium Levels Monitoring"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Severe Nausea"
+      ],
+      [
+        "Fruity Breath Odor",
+        "Physical Exam"
+      ],
+      [
+        "Diabetic Ketoacidosis",
+        "Metabolic Acidosis"
+      ]
+    ],
+    "count": 16,
+    "create_time": 1768905775,
+    "update_time": 1768905775,
+    "_id": "doc-88c1397985267e906468ad9f26a69621"
+  }
+}

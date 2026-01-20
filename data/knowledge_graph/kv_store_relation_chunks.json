@@ -1,0 +1,272 @@
+{
+  "Virus Viêm Gan B (HBV)<SEP>Viêm Gan B": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901935,
+    "update_time": 1768901935,
+    "_id": "Virus Viêm Gan B (HBV)<SEP>Viêm Gan B"
+  },
+  "Tenofovir<SEP>Viêm Gan B Mãn Tính": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901935,
+    "update_time": 1768901935,
+    "_id": "Tenofovir<SEP>Viêm Gan B Mãn Tính"
+  },
+  "Viêm Gan B<SEP>Vàng Da": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901936,
+    "update_time": 1768901936,
+    "_id": "Viêm Gan B<SEP>Vàng Da"
+  },
+  "Suy Thận<SEP>Tenofovir": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901936,
+    "update_time": 1768901936,
+    "_id": "Suy Thận<SEP>Tenofovir"
+  },
+  "Mệt Mỏi<SEP>Viêm Gan B": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901936,
+    "update_time": 1768901936,
+    "_id": "Mệt Mỏi<SEP>Viêm Gan B"
+  },
+  "Loãng Xương<SEP>Tenofovir": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901936,
+    "update_time": 1768901936,
+    "_id": "Loãng Xương<SEP>Tenofovir"
+  },
+  "Buồn Nôn<SEP>Viêm Gan B": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901937,
+    "update_time": 1768901937,
+    "_id": "Buồn Nôn<SEP>Viêm Gan B"
+  },
+  "Viêm Gan B<SEP>Đau Bụng": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901937,
+    "update_time": 1768901937,
+    "_id": "Viêm Gan B<SEP>Đau Bụng"
+  },
+  "Gan<SEP>Viêm Gan B": {
+    "chunk_ids": [
+      "chunk-dcbfd002e14a61aaffb86d7ffeddef18"
+    ],
+    "count": 1,
+    "create_time": 1768901937,
+    "update_time": 1768901937,
+    "_id": "Gan<SEP>Viêm Gan B"
+  },
+  "Diabetic Ketoacidosis<SEP>Type 1 Diabetes": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "count": 1,
+    "create_time": 1768905404,
+    "update_time": 1768905404,
+    "_id": "Diabetic Ketoacidosis<SEP>Type 1 Diabetes"
+  },
+  "Diabetic Ketoacidosis<SEP>Nausea": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "count": 1,
+    "create_time": 1768905404,
+    "update_time": 1768905404,
+    "_id": "Diabetic Ketoacidosis<SEP>Nausea"
+  },
+  "Diabetic Ketoacidosis<SEP>Vomiting": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905770,
+    "_id": "Diabetic Ketoacidosis<SEP>Vomiting"
+  },
+  "Abdominal Pain<SEP>Diabetic Ketoacidosis": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905771,
+    "_id": "Abdominal Pain<SEP>Diabetic Ketoacidosis"
+  },
+  "Hyperglycemia<SEP>Insulin": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "count": 1,
+    "create_time": 1768905405,
+    "update_time": 1768905405,
+    "_id": "Hyperglycemia<SEP>Insulin"
+  },
+  "Diabetic Ketoacidosis<SEP>Kussmaul Respirations": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905772,
+    "_id": "Diabetic Ketoacidosis<SEP>Kussmaul Respirations"
+  },
+  "Hypokalemia<SEP>Insulin": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905772,
+    "_id": "Hypokalemia<SEP>Insulin"
+  },
+  "Diabetic Ketoacidosis<SEP>Fruity Breath Odor": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905772,
+    "_id": "Diabetic Ketoacidosis<SEP>Fruity Breath Odor"
+  },
+  "Hyperglycemia<SEP>Lab Results": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905770,
+    "_id": "Hyperglycemia<SEP>Lab Results"
+  },
+  "Lab Results<SEP>Metabolic Acidosis": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905771,
+    "_id": "Lab Results<SEP>Metabolic Acidosis"
+  },
+  "Diabetic Ketoacidosis<SEP>Hyperglycemia": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905773,
+    "_id": "Diabetic Ketoacidosis<SEP>Hyperglycemia"
+  },
+  "Kussmaul Respirations<SEP>Physical Exam": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905770,
+    "_id": "Kussmaul Respirations<SEP>Physical Exam"
+  },
+  "Lab Results<SEP>Potassium Levels": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "count": 1,
+    "create_time": 1768905407,
+    "update_time": 1768905407,
+    "_id": "Lab Results<SEP>Potassium Levels"
+  },
+  "Diabetic Ketoacidosis<SEP>Metabolic Acidosis": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905773,
+    "_id": "Diabetic Ketoacidosis<SEP>Metabolic Acidosis"
+  },
+  "Fruity Breath Odor<SEP>Physical Exam": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905770,
+    "_id": "Fruity Breath Odor<SEP>Physical Exam"
+  },
+  "Diabetic Ketoacidosis<SEP>IV Fluids": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905774,
+    "_id": "Diabetic Ketoacidosis<SEP>IV Fluids"
+  },
+  "Diabetic Ketoacidosis<SEP>Insulin Infusion": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905774,
+    "_id": "Diabetic Ketoacidosis<SEP>Insulin Infusion"
+  },
+  "Diabetic Ketoacidosis<SEP>Lab Results": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98"
+    ],
+    "count": 1,
+    "create_time": 1768905409,
+    "update_time": 1768905409,
+    "_id": "Diabetic Ketoacidosis<SEP>Lab Results"
+  },
+  "Diabetic Ketoacidosis<SEP>Normal Saline": {
+    "chunk_ids": [
+      "chunk-1da80ab7d5e9dc4c2df78295fb5e2d98",
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 2,
+    "update_time": 1768905774,
+    "_id": "Diabetic Ketoacidosis<SEP>Normal Saline"
+  },
+  "Diabetic Ketoacidosis<SEP>Severe Nausea": {
+    "chunk_ids": [
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 1,
+    "create_time": 1768905770,
+    "update_time": 1768905770,
+    "_id": "Diabetic Ketoacidosis<SEP>Severe Nausea"
+  },
+  "Hypokalemia<SEP>Potassium Levels Monitoring": {
+    "chunk_ids": [
+      "chunk-88c1397985267e906468ad9f26a69621"
+    ],
+    "count": 1,
+    "create_time": 1768905773,
+    "update_time": 1768905773,
+    "_id": "Hypokalemia<SEP>Potassium Levels Monitoring"
+  }
+}

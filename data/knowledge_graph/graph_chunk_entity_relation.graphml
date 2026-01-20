@@ -1,0 +1,568 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="d12" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d11" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d8" for="edge" attr.name="description" attr.type="string" />
+  <key id="d7" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d6" for="node" attr.name="truncate" attr.type="string" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Viêm Gan B">
+      <data key="d0">Viêm Gan B</data>
+      <data key="d1">concept</data>
+      <data key="d2">Viêm gan B is a liver infection caused by the Hepatitis B virus (HBV).</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901932</data>
+      <data key="d6" />
+    </node>
+    <node id="Virus Viêm Gan B (HBV)">
+      <data key="d0">Virus Viêm Gan B (HBV)</data>
+      <data key="d1">creature</data>
+      <data key="d2">Virus Viêm Gan B (HBV) is the virus that causes Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901932</data>
+      <data key="d6" />
+    </node>
+    <node id="Vàng Da">
+      <data key="d0">Vàng Da</data>
+      <data key="d1">concept</data>
+      <data key="d2">Vàng Da is a symptom associated with Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901933</data>
+      <data key="d6" />
+    </node>
+    <node id="Mệt Mỏi">
+      <data key="d0">Mệt Mỏi</data>
+      <data key="d1">concept</data>
+      <data key="d2">Mệt Mỏi is a symptom associated with Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901933</data>
+      <data key="d6" />
+    </node>
+    <node id="Buồn Nôn">
+      <data key="d0">Buồn Nôn</data>
+      <data key="d1">concept</data>
+      <data key="d2">Buồn Nôn is a symptom associated with Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901933</data>
+      <data key="d6" />
+    </node>
+    <node id="Đau Bụng">
+      <data key="d0">Đau Bụng</data>
+      <data key="d1">concept</data>
+      <data key="d2">Đau Bụng is a symptom associated with Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901933</data>
+      <data key="d6" />
+    </node>
+    <node id="Tenofovir">
+      <data key="d0">Tenofovir</data>
+      <data key="d1">artifact</data>
+      <data key="d2">Tenofovir is an antiviral drug used to treat chronic Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901934</data>
+      <data key="d6" />
+    </node>
+    <node id="Viêm Gan B Mãn Tính">
+      <data key="d0">Viêm Gan B Mãn Tính</data>
+      <data key="d1">concept</data>
+      <data key="d2">Viêm Gan B Mãn Tính is a chronic form of Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901934</data>
+      <data key="d6" />
+    </node>
+    <node id="Suy Thận">
+      <data key="d0">Suy Thận</data>
+      <data key="d1">concept</data>
+      <data key="d2">Suy Thận is a potential side effect of Tenofovir.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901934</data>
+      <data key="d6" />
+    </node>
+    <node id="Loãng Xương">
+      <data key="d0">Loãng Xương</data>
+      <data key="d1">concept</data>
+      <data key="d2">Loãng Xương is a potential side effect of Tenofovir.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901935</data>
+      <data key="d6" />
+    </node>
+    <node id="Gan">
+      <data key="d0">Gan</data>
+      <data key="d1">naturalobject</data>
+      <data key="d2">Gan is an organ that is infected by Viêm gan B.</data>
+      <data key="d3">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768901935</data>
+      <data key="d6" />
+    </node>
+    <node id="Abdominal Pain">
+      <data key="d0">Abdominal Pain</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Abdominal pain is a severe symptom experienced by the patient.&lt;SEP&gt;A symptom presented by the patient.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905766</data>
+      <data key="d6" />
+    </node>
+    <node id="Diabetic Ketoacidosis">
+      <data key="d0">Diabetic Ketoacidosis</data>
+      <data key="d1">disease</data>
+      <data key="d2">Diabetic Ketoacidosis, also known as DKA, is a severe complication of diabetes.&lt;SEP&gt;The subject of the case study, a severe complication of diabetes.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905765</data>
+      <data key="d6" />
+    </node>
+    <node id="Fruity Breath Odor">
+      <data key="d0">Fruity Breath Odor</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Fruity breath odor is a symptom, characterized by an acetone smell, observed during a physical exam.&lt;SEP&gt;A finding revealed by physical exam.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905767</data>
+      <data key="d6" />
+    </node>
+    <node id="Hyperglycemia">
+      <data key="d0">Hyperglycemia</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Hyperglycemia, or high blood glucose, is a lab finding.&lt;SEP&gt;A finding shown by lab results.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905767</data>
+      <data key="d6" />
+    </node>
+    <node id="Hypokalemia">
+      <data key="d0">Hypokalemia</data>
+      <data key="d1">sideeffect</data>
+      <data key="d2">Hypokalemia, or low potassium, is a potential side effect that can be caused by Insulin.&lt;SEP&gt;A condition caused by insulin, requiring potassium levels to be monitored.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905769</data>
+      <data key="d6" />
+    </node>
+    <node id="Insulin">
+      <data key="d0">Insulin</data>
+      <data key="d1">drug</data>
+      <data key="d2">Insulin is a hormone and drug used to lower blood sugar.&lt;SEP&gt;A substance administered via infusion that causes hypokalemia.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905769</data>
+      <data key="d6" />
+    </node>
+    <node id="Insulin Infusion">
+      <data key="d0">Insulin Infusion</data>
+      <data key="d1">treatment</data>
+      <data key="d2">Insulin infusion is a treatment involving the continuous administration of insulin.&lt;SEP&gt;A treatment component for Diabetic Ketoacidosis.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905769</data>
+      <data key="d6" />
+    </node>
+    <node id="IV Fluids">
+      <data key="d0">IV Fluids</data>
+      <data key="d1">treatment</data>
+      <data key="d2">IV fluids are an aggressive treatment administered intravenously.&lt;SEP&gt;An aggressive treatment component used for Diabetic Ketoacidosis.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905768</data>
+      <data key="d6" />
+    </node>
+    <node id="Kussmaul Respirations">
+      <data key="d0">Kussmaul Respirations</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Kussmaul respirations are a deep, labored breathing pattern observed during a physical exam.&lt;SEP&gt;A finding revealed by physical exam.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905766</data>
+      <data key="d6" />
+    </node>
+    <node id="Lab Results">
+      <data key="d0">Lab Results</data>
+      <data key="d1">test</data>
+      <data key="d2">Lab results are diagnostic tests used to analyze blood and other samples for medical findings.&lt;SEP&gt;Diagnostic test findings that showed hyperglycemia and metabolic acidosis.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905768</data>
+      <data key="d6" />
+    </node>
+    <node id="Metabolic Acidosis">
+      <data key="d0">Metabolic Acidosis</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Metabolic acidosis is a lab finding indicating an imbalance in the body's acid-base balance.&lt;SEP&gt;A finding shown by lab results.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905767</data>
+      <data key="d6" />
+    </node>
+    <node id="Nausea">
+      <data key="d0">Nausea</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Nausea is a severe symptom experienced by the patient.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905403</data>
+      <data key="d6" />
+    </node>
+    <node id="Normal Saline">
+      <data key="d0">Normal Saline</data>
+      <data key="d1">drug</data>
+      <data key="d2">Normal Saline is a type of IV fluid used in treatment.&lt;SEP&gt;A specific type of IV fluid used in treatment.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905769</data>
+      <data key="d6" />
+    </node>
+    <node id="Potassium Levels">
+      <data key="d0">Potassium Levels</data>
+      <data key="d1">test</data>
+      <data key="d2">Potassium levels are monitored to detect potential side effects of treatment.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905403</data>
+      <data key="d6" />
+    </node>
+    <node id="Type 1 Diabetes">
+      <data key="d0">Type 1 Diabetes</data>
+      <data key="d1">disease</data>
+      <data key="d2">Type 1 Diabetes is a chronic condition that can lead to Diabetic Ketoacidosis.&lt;SEP&gt;A pre-existing condition of the patient mentioned in the case study.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905765</data>
+      <data key="d6" />
+    </node>
+    <node id="Vomiting">
+      <data key="d0">Vomiting</data>
+      <data key="d1">symptom</data>
+      <data key="d2">Vomiting is a severe symptom experienced by the patient.&lt;SEP&gt;A symptom presented by the patient.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905766</data>
+      <data key="d6" />
+    </node>
+    <node id="Physical Exam">
+      <data key="d0">Physical Exam</data>
+      <data key="d1">test</data>
+      <data key="d2">A physical exam is a medical assessment method used to identify symptoms and signs.&lt;SEP&gt;A diagnostic procedure that revealed Kussmaul respirations and fruity breath odor.</data>
+      <data key="d3">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905768</data>
+      <data key="d6" />
+    </node>
+    <node id="Patient">
+      <data key="d0">Patient</data>
+      <data key="d1">person</data>
+      <data key="d2">A 25-year-old individual with Type 1 Diabetes mentioned in the case study.</data>
+      <data key="d3">chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905765</data>
+      <data key="d6" />
+    </node>
+    <node id="Severe Nausea">
+      <data key="d0">Severe Nausea</data>
+      <data key="d1">symptom</data>
+      <data key="d2">A symptom presented by the patient.</data>
+      <data key="d3">chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905766</data>
+      <data key="d6" />
+    </node>
+    <node id="Potassium Levels Monitoring">
+      <data key="d0">Potassium Levels Monitoring</data>
+      <data key="d1">test</data>
+      <data key="d2">A procedure required to monitor potassium levels due to insulin causing hypokalemia.</data>
+      <data key="d3">chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1768905769</data>
+      <data key="d6" />
+    </node>
+    <edge source="Viêm Gan B" target="Virus Viêm Gan B (HBV)">
+      <data key="d7">1.0</data>
+      <data key="d8">Viêm gan B is caused by the Virus Viêm Gan B (HBV).</data>
+      <data key="d9">causation,infection</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901935</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Viêm Gan B" target="Vàng Da">
+      <data key="d7">1.0</data>
+      <data key="d8">Vàng Da is a symptom of Viêm gan B.</data>
+      <data key="d9">manifestation,symptom</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901936</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Viêm Gan B" target="Mệt Mỏi">
+      <data key="d7">1.0</data>
+      <data key="d8">Mệt Mỏi is a symptom of Viêm gan B.</data>
+      <data key="d9">manifestation,symptom</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901936</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Viêm Gan B" target="Buồn Nôn">
+      <data key="d7">1.0</data>
+      <data key="d8">Buồn Nôn is a symptom of Viêm gan B.</data>
+      <data key="d9">manifestation,symptom</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901937</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Viêm Gan B" target="Đau Bụng">
+      <data key="d7">1.0</data>
+      <data key="d8">Đau Bụng is a symptom of Viêm gan B.</data>
+      <data key="d9">manifestation,symptom</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901937</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Viêm Gan B" target="Gan">
+      <data key="d7">1.0</data>
+      <data key="d8">Viêm gan B is a liver infection that affects the Gan.</data>
+      <data key="d9">affects,location</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901937</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tenofovir" target="Viêm Gan B Mãn Tính">
+      <data key="d7">1.0</data>
+      <data key="d8">Tenofovir is an antiviral drug used to treat Viêm Gan B Mãn Tính.</data>
+      <data key="d9">medication,treatment</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901935</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tenofovir" target="Suy Thận">
+      <data key="d7">1.0</data>
+      <data key="d8">Tenofovir can cause Suy Thận as a side effect.</data>
+      <data key="d9">adverse reaction,side effect</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901936</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tenofovir" target="Loãng Xương">
+      <data key="d7">1.0</data>
+      <data key="d8">Tenofovir can cause Loãng Xương as a side effect.</data>
+      <data key="d9">adverse reaction,side effect</data>
+      <data key="d10">chunk-dcbfd002e14a61aaffb86d7ffeddef18</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768901936</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Abdominal Pain" target="Diabetic Ketoacidosis">
+      <data key="d7">2.0</data>
+      <data key="d8">Abdominal pain is a symptom caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes abdominal pain.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905771</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Type 1 Diabetes">
+      <data key="d7">1.0</data>
+      <data key="d8">Diabetic Ketoacidosis is a severe complication caused by Type 1 Diabetes.</data>
+      <data key="d9">CAUSES,complication</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905404</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Nausea">
+      <data key="d7">1.0</data>
+      <data key="d8">Nausea is a symptom caused by Diabetic Ketoacidosis.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905404</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Vomiting">
+      <data key="d7">2.0</data>
+      <data key="d8">Vomiting is a symptom caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes vomiting.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905770</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Kussmaul Respirations">
+      <data key="d7">2.0</data>
+      <data key="d8">Kussmaul respirations are a symptom caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes Kussmaul respirations.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905772</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Fruity Breath Odor">
+      <data key="d7">2.0</data>
+      <data key="d8">Fruity breath odor is a symptom caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes fruity breath odor.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905773</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Hyperglycemia">
+      <data key="d7">2.0</data>
+      <data key="d8">Hyperglycemia is a key lab finding caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes hyperglycemia.</data>
+      <data key="d9">CAUSES,finding,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905773</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Metabolic Acidosis">
+      <data key="d7">2.0</data>
+      <data key="d8">Metabolic acidosis is a key lab finding caused by Diabetic Ketoacidosis.&lt;SEP&gt;Diabetic Ketoacidosis causes metabolic acidosis.</data>
+      <data key="d9">CAUSES,finding,symptom</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905773</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="IV Fluids">
+      <data key="d7">2.0</data>
+      <data key="d8">IV fluids are used as an aggressive treatment for Diabetic Ketoacidosis.&lt;SEP&gt;IV fluids are used to treat Diabetic Ketoacidosis.</data>
+      <data key="d9">TREATS,therapy</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905774</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Insulin Infusion">
+      <data key="d7">2.0</data>
+      <data key="d8">Insulin infusion is a treatment for Diabetic Ketoacidosis.&lt;SEP&gt;Insulin infusion is used to treat Diabetic Ketoacidosis.</data>
+      <data key="d9">TREATS,therapy</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905774</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Lab Results">
+      <data key="d7">1.0</data>
+      <data key="d8">Diabetic Ketoacidosis is diagnosed by analysis of lab results.</data>
+      <data key="d9">DIAGNOSED_BY,test</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905409</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Normal Saline">
+      <data key="d7">2.0</data>
+      <data key="d8">Normal Saline, as a component of IV fluids, is used to treat Diabetic Ketoacidosis.&lt;SEP&gt;Normal Saline is used as a treatment for Diabetic Ketoacidosis.</data>
+      <data key="d9">TREATS,therapy</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905774</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Diabetic Ketoacidosis" target="Severe Nausea">
+      <data key="d7">1.0</data>
+      <data key="d8">Diabetic Ketoacidosis causes severe nausea.</data>
+      <data key="d9">CAUSES,symptom</data>
+      <data key="d10">chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905770</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fruity Breath Odor" target="Physical Exam">
+      <data key="d7">2.0</data>
+      <data key="d8">Fruity breath odor is revealed during a physical exam.&lt;SEP&gt;Fruity breath odor is diagnosed by physical exam.</data>
+      <data key="d9">DIAGNOSED_BY,observation,revealed by</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905771</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hyperglycemia" target="Insulin">
+      <data key="d7">1.0</data>
+      <data key="d8">Insulin is administered to lower high blood glucose (Hyperglycemia).</data>
+      <data key="d9">TREATS,lowers_blood_sugar</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905405</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hyperglycemia" target="Lab Results">
+      <data key="d7">2.0</data>
+      <data key="d8">Hyperglycemia is detected through lab results.&lt;SEP&gt;Hyperglycemia is diagnosed by lab results.</data>
+      <data key="d9">DIAGNOSED_BY,shown by,test</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905771</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hypokalemia" target="Insulin">
+      <data key="d7">2.0</data>
+      <data key="d8">Insulin can cause Hypokalemia (low potassium) as a side effect.&lt;SEP&gt;Insulin causes hypokalemia.</data>
+      <data key="d9">CAUSES,HAS_SIDE_EFFECT,side_effect</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905772</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hypokalemia" target="Potassium Levels Monitoring">
+      <data key="d7">1.0</data>
+      <data key="d8">Hypokalemia is diagnosed and managed by potassium levels monitoring.</data>
+      <data key="d9">DIAGNOSED_BY,monitored by</data>
+      <data key="d10">chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905773</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Kussmaul Respirations" target="Physical Exam">
+      <data key="d7">2.0</data>
+      <data key="d8">Kussmaul respirations are revealed during a physical exam.&lt;SEP&gt;Kussmaul respirations are diagnosed by physical exam.</data>
+      <data key="d9">DIAGNOSED_BY,observation,revealed by</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905770</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Lab Results" target="Metabolic Acidosis">
+      <data key="d7">2.0</data>
+      <data key="d8">Metabolic acidosis is detected through lab results.&lt;SEP&gt;Metabolic acidosis is diagnosed by lab results.</data>
+      <data key="d9">DIAGNOSED_BY,shown by,test</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98&lt;SEP&gt;chunk-88c1397985267e906468ad9f26a69621</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905772</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Lab Results" target="Potassium Levels">
+      <data key="d7">1.0</data>
+      <data key="d8">Potassium levels are monitored and detected through lab results.</data>
+      <data key="d9">DIAGNOSED_BY,monitoring</data>
+      <data key="d10">chunk-1da80ab7d5e9dc4c2df78295fb5e2d98</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1768905407</data>
+      <data key="d13" />
+    </edge>
+  </graph>
+</graphml>
