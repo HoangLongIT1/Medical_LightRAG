@@ -80,7 +80,7 @@ Các chuyên khoa khả dụng:
 - "ngoai_khoa" (NGOẠI KHOA): Chấn thương, phẫu thuật, vết thương, bỏng, gãy xương, u bướu cần can thiệp
 - "nha_khoa" (NHA KHOA): Răng miệng, sâu răng, viêm nướu, nhổ răng, chỉnh nha, implant
 - "san_khoa" (SẢN KHOA): Mang thai, sinh đẻ, sức khỏe phụ nữ, tiền sản, hậu sản
-- "da_lieu" (ĐA LIỄU): Bệnh da, dị ứng da, nổi mẩn, chàm, vảy nến, nấm da
+- "da_lieu" (DA LIỄU): Bệnh da, dị ứng da, nổi mẩn, chàm, vảy nến, nấm da
 - "tam_than" (TÂM THẦN): Sức khỏe tâm thần, trầm cảm, lo âu, mất ngủ, stress
 
 Logic ưu tiên:
