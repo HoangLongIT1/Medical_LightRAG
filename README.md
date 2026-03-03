@@ -1,4 +1,4 @@
-# Chatbot RHM — Medical Multi-Agent API
+# Medical LightRAG — Multi-Agent Medical API
 
 Medical chatbot API powered by **LightRAG** (Graph + Vector RAG) with a multi-agent architecture built on **PocketFlow**.
 

@@ -13,7 +13,7 @@ docker-compose build --parallel
 
 echo.
 echo [2/3] Tagging latest image...
-docker tag chatbot-rhm-api chatbot-rhm-api:latest
+docker tag medical-lightrag-api medical-lightrag-api:latest
 
 echo.
 echo [3/3] Done! Starting services...
@@ -24,5 +24,5 @@ echo ==========================================
 echo Build completed successfully!
 echo ==========================================
 echo.
-echo View logs: docker-compose logs -f chatbot-rhm-api
+echo View logs: docker-compose logs -f medical-lightrag-api
 echo Stop services: docker-compose down

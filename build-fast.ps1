@@ -4,6 +4,6 @@ $env:COMPOSE_DOCKER_CLI_BUILD=1
 
 docker-compose build --parallel
 
-docker tag chatbot-rhm-api chatbot-rhm-api:latest
+docker tag medical-lightrag-api medical-lightrag-api:latest
 
 docker-compose up -d

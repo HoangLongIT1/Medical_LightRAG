@@ -1,5 +1,5 @@
 docker run --name langfuse \
--e DATABASE_URL=postgresql://hiaivn:dev123@localhost:5433/chatbot_rhm \
+-e DATABASE_URL=postgresql://hiaivn:dev123@localhost:5433/${POSTGRES_DB} \
 -e NEXTAUTH_URL=http://localhost:3000 \
 -e NEXTAUTH_SECRET=yLdi5cuIf8xHRqMgpAHkcHg+C08KK1PN/UZ+EuI00Ss \
 -e SALT=mzoUWumriVXcjpx9M5kabs2tSAou6pWBNpqm3rlcsKs \
