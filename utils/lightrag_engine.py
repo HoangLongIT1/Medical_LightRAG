@@ -43,19 +43,67 @@ async def gemini_llm_complete(
     client = genai.Client(api_key=api_key)
     model_name = kwargs.pop("model", lightrag_config.LLM_MODEL)
 
+    MEDICAL_GRAPH_PROMPT = """
+--- MEDICAL EXTRACTION RULES ---
+Bạn là một Chuyên gia AI Y khoa Tiếng Việt. Nhiệm vụ của bạn là phân tích văn bản và trích xuất sơ đồ tri thức (Knowledge Graph).
+
+### MỤC TIÊU TRÍCH XUẤT (ENTITIES):
+- Disease (Bệnh): Ví dụ: Tiểu đường, Ung thư phổi, Viêm gan B.
+- Symptom (Triệu chứng): Ví dụ: Sốt cao, Ho khan, Đau bụng, Vàng da.
+- Drug (Thuốc/Hoạt chất): Ví dụ: Paracetamol, Insulin, Metformin.
+- Treatment (Điều trị/Phẫu thuật): Ví dụ: Truyền dịch, Mổ nội soi, Xạ trị.
+- Anatomy (Bộ phận cơ thể): Ví dụ: Gan, Phổi, Thận, Tim.
+- SideEffect (Tác dụng phụ): Ví dụ: Buồn nôn, Suy thận, Dị ứng.
+
+### MỐI QUAN HỆ (RELATIONS):
+- TREATS (Điều trị): Thuốc/Phương pháp -> Bệnh/Triệu chứng.
+- CAUSES (Gây ra): Bệnh/Thuốc -> Triệu chứng/Tác dụng phụ.
+- PREVENTS (Ngăn ngừa): Thuốc -> Bệnh.
+- DIAGNOSED_BY (Chẩn đoán bằng): Bệnh -> Xét nghiệm/Test.
+- LOCATED_IN (Vị trí tại): Bệnh -> Bộ phận cơ thể.
+
+### QUY TẮC BẮT BUỘC:
+1. Ngôn ngữ đầu ra: HOÀN TOÀN BẰNG TIẾNG VIỆT.
+2. Nếu gặp thuật ngữ tiếng Anh, hãy dịch sang thuật ngữ y khoa tiếng Việt tương đương (VD: "Hypertension" -> "Tăng huyết áp").
+3. Trích xuất dưới dạng JSON chuẩn.
+--------------------------------
+"""
+
+    # Detect if LightRAG is asking for knowledge graph extraction
+    combined_content = (system_prompt or "") + prompt
+    combined_lower = combined_content.lower()
+    
+    is_extraction = "extract" in combined_lower and "json" in combined_lower
+
     # Build the full prompt
     full_prompt = ""
-    if system_prompt:
-        full_prompt += f"{system_prompt}\n\n"
+    
+    if is_extraction:
+        # Inject medical ontology rules for graph extraction
+        full_prompt += MEDICAL_GRAPH_PROMPT + "\n"
+        if system_prompt:
+            full_prompt += f"{system_prompt}\n\n"
+        full_prompt += f"User: {prompt}\n"
+    elif "keywords" in combined_lower:
+        # Keyword extraction phase for retrieval
+        if system_prompt:
+            full_prompt += f"{system_prompt}\n\n"
+        full_prompt += f"User: {prompt}\n"
+    else:
+        # Standard answering phase
+        full_prompt += "SYSTEM: You are a helpful Medical Assistant. Always answer strictly in Vietnamese (Tiếng Việt).\n\n"
+        if system_prompt:
+            full_prompt += f"{system_prompt}\n\n"
 
-    if history_messages:
-        for msg in history_messages:
-            role = msg.get("role", "user")
-            content = msg.get("content", "")
-            full_prompt += f"[{role}]: {content}\n"
-        full_prompt += "\n"
+        if history_messages:
+            for msg in history_messages:
+                role = msg.get("role", "user")
+                content = msg.get("content", "")
+                full_prompt += f"[{role}]: {content}\n"
+            full_prompt += "\n"
+        
+        full_prompt += f"User: {prompt}\nAnswer:"
 
-    full_prompt += prompt
 
     try:
         # Use async generation
@@ -95,7 +143,7 @@ async def gemini_embedding_func(texts: list[str]) -> list[list[float]]:
             batch = texts[i : i + batch_size]
             response = await asyncio.to_thread(
                 client.models.embed_content,
-                model="gemini-embedding-exp-03-07",
+                model=lightrag_config.EMBEDDING_MODEL,
                 contents=batch,
             )
             for embedding in response.embeddings:
@@ -148,8 +196,6 @@ class LightRAGEngine:
             rag = LightRAG(
                 working_dir=working_dir,
                 llm_model_func=gemini_llm_complete,
-                llm_model_max_async=lightrag_config.LLM_MAX_ASYNC,
-                llm_model_max_token_size=lightrag_config.LLM_MAX_TOKENS,
                 chunk_token_size=lightrag_config.CHUNK_SIZE,
                 chunk_overlap_token_size=lightrag_config.CHUNK_OVERLAP,
                 embedding_func=EmbeddingFunc(

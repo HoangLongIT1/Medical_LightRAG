@@ -18,13 +18,18 @@ class LightRAGConfig:
 
     # LLM Configuration
     LLM_MODEL: str = field(
-        default_factory=lambda: os.getenv("LIGHTRAG_LLM_MODEL", "gemini-2.5-flash-lite")
+        default_factory=lambda: os.getenv("LIGHTRAG_LLM_MODEL", "gemini-2.5-flash")
     )
     LLM_MAX_TOKENS: int = field(
         default_factory=lambda: int(os.getenv("LIGHTRAG_MAX_TOKENS", "32768"))
     )
     LLM_MAX_ASYNC: int = field(
         default_factory=lambda: int(os.getenv("LIGHTRAG_MAX_ASYNC", "4"))
+    )
+
+    # Embedding Configuration
+    EMBEDDING_MODEL: str = field(
+        default_factory=lambda: os.getenv("LIGHTRAG_EMBEDDING_MODEL", "gemini-embedding-001")
     )
 
     # Chunking Configuration
