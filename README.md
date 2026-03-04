@@ -5,10 +5,11 @@ Medical chatbot API powered by **Hybrid Search** (BM25 + Vector + Knowledge Grap
 ## Architecture
 
 ```
+Layer 0 (Safety):     SafetyGuardrailNode (Hard safety gate — BLOCK/WARN/SAFE)
 Layer 1 (Cognitive):  IngestQuery → ClinicalStateManager
 Layer 2 (Routing):    MasterMedicalRouter
 Layer 3 (Execution):  8 Specialist Agents → Hybrid Search (BM25 + Graph + Vector)
-Layer 4 (Output):     ComposeAnswer (+ Safety Disclaimer)
+Layer 4 (Output):     ComposeAnswer (+ Soft Safety Disclaimer)
 Layer 5 (Memory):     MemoryManager → Add/Update/Delete
 ```
 
@@ -25,8 +26,19 @@ Layer 5 (Memory):     MemoryManager → Add/Update/Delete
 | DermatologyAgent | `da_lieu` | Đa Liễu — skin infections, eczema, psoriasis, acne, allergies |
 | PsychiatryAgent | `tam_than` | Tâm Thần — depression, anxiety, sleep, stress (crisis hotline: 1800 599 100) |
 
-### Safety Layer
+### Safety Layers
 
+**Layer 0 — Hard Guardrails (SafetyGuardrailNode):**
+Blocks dangerous queries (self-harm, poisoning, drug abuse, harming others) **before** they reach the medical pipeline. Returns hardcoded emergency hotline numbers.
+
+| Threat | Response |
+|--------|----------|
+| Self-harm / Suicide | Emergency hotlines: `1800 599 100`, `115` |
+| Harming others | Refusal + Police: `113` |
+| Poison / drug creation | Refusal + Emergency: `115` |
+| Drug abuse | Refusal + Addiction support |
+
+**Layer 4 — Soft Disclaimer:**
 Responses involving medication (dosage, drug names, contraindications) or sensitive specialists (Dược Lý, Tâm Thần, Sản Khoa) automatically include a disclaimer:
 
 > ⚠️ **Lưu ý:** Thông tin do AI cung cấp có thể chưa hoàn toàn chính xác. Vui lòng tham khảo thêm ý kiến của chuyên gia trong lĩnh vực liên quan trước khi áp dụng bất kỳ phương pháp điều trị nào.
@@ -127,14 +139,15 @@ See `.env.local` for full list.
 │   └── lightrag_query.py   # LightRAG query endpoints
 ├── core/
 │   ├── nodes/              # PocketFlow node implementations
+│   │   ├── SafetyGuardrailNode.py    # Hard safety gate (Layer 0)
 │   │   ├── ClinicalStateManager.py   # Symptom tracking (Layer 1)
 │   │   ├── MasterMedicalRouter.py    # Intent routing (Layer 2)
 │   │   ├── SpecialistAgents.py       # 8 specialist agents (Layer 3)
 │   │   ├── RetrieveFromKBWithDemuc.py # Hybrid Search retrieval
-│   │   └── ComposeAnswer.py          # Response generation + safety disclaimer
+│   │   └── ComposeAnswer.py          # Response generation + soft disclaimer
 │   └── flows/
 │       ├── medical_flow.py           # Basic medical flow
-│       └── advanced_medical_flow.py  # Full 5-layer pipeline (9 routes)
+│       └── advanced_medical_flow.py  # Full 6-layer pipeline (9 routes)
 ├── config/                 # Configuration modules
 ├── database/               # SQLAlchemy models & DB setup
 ├── scripts/
