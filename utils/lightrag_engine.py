@@ -9,9 +9,11 @@ Provides:
 """
 
 import os
+import json
+import re
 import logging
 import asyncio
-from typing import Optional
+from typing import Optional, List, Dict, Any
 
 from config.lightrag_config import lightrag_config
 
@@ -156,6 +158,102 @@ async def gemini_embedding_func(texts: list[str]) -> list[list[float]]:
 
 
 # ============================================================================
+# BM25 Keyword Index for Hybrid Search
+# ============================================================================
+
+class BM25Index:
+    """
+    BM25 keyword index built from LightRAG's text chunks.
+    Provides exact keyword matching to complement vector search.
+    """
+
+    def __init__(self):
+        self._index = None
+        self._chunks: List[Dict[str, Any]] = []  # [{"id": ..., "content": ...}]
+        self._tokenized_corpus: List[List[str]] = []
+
+    @staticmethod
+    def _tokenize(text: str) -> List[str]:
+        """Simple whitespace + punctuation tokenizer for Vietnamese/English medical text."""
+        text = text.lower()
+        # Keep alphanumeric, Vietnamese diacritics, hyphens (for drug names)
+        tokens = re.findall(r'[\w\-]+', text, re.UNICODE)
+        return [t for t in tokens if len(t) > 1]
+
+    def build_from_kv_store(self, working_dir: str):
+        """
+        Load text chunks from LightRAG's KV store and build the BM25 index.
+        """
+        from rank_bm25 import BM25Okapi
+
+        kv_path = os.path.join(working_dir, "kv_store_text_chunks.json")
+        if not os.path.exists(kv_path):
+            logger.warning(f"⚠️ BM25: KV store not found at {kv_path}. Index will be empty.")
+            return
+
+        try:
+            with open(kv_path, 'r', encoding='utf-8') as f:
+                kv_data = json.load(f)
+        except Exception as e:
+            logger.error(f"❌ BM25: Failed to read KV store: {e}")
+            return
+
+        self._chunks = []
+        self._tokenized_corpus = []
+
+        for chunk_id, chunk_data in kv_data.items():
+            content = ""
+            if isinstance(chunk_data, dict):
+                content = chunk_data.get("content", chunk_data.get("data", ""))
+            elif isinstance(chunk_data, str):
+                content = chunk_data
+
+            if content:
+                self._chunks.append({"id": chunk_id, "content": content})
+                self._tokenized_corpus.append(self._tokenize(content))
+
+        if self._tokenized_corpus:
+            self._index = BM25Okapi(self._tokenized_corpus)
+            logger.info(f"✅ BM25 index built with {len(self._chunks)} chunks")
+        else:
+            logger.warning("⚠️ BM25: No text chunks found. Index is empty.")
+
+    def search(self, query: str, top_k: int = 10) -> List[Dict[str, Any]]:
+        """
+        Search the BM25 index and return top-k results.
+        Returns: [{"id": ..., "content": ..., "bm25_score": ...}]
+        """
+        if self._index is None or not self._chunks:
+            return []
+
+        tokenized_query = self._tokenize(query)
+        if not tokenized_query:
+            return []
+
+        scores = self._index.get_scores(tokenized_query)
+
+        # Get top-k indices sorted by score descending
+        scored_indices = sorted(
+            enumerate(scores), key=lambda x: x[1], reverse=True
+        )[:top_k]
+
+        results = []
+        for idx, score in scored_indices:
+            if score > 0:  # Only include non-zero scores
+                results.append({
+                    "id": self._chunks[idx]["id"],
+                    "content": self._chunks[idx]["content"],
+                    "bm25_score": float(score),
+                })
+
+        return results
+
+    @property
+    def is_ready(self) -> bool:
+        return self._index is not None and len(self._chunks) > 0
+
+
+# ============================================================================
 # LightRAG Engine Singleton
 # ============================================================================
 
@@ -163,10 +261,12 @@ class LightRAGEngine:
     """
     Singleton wrapper for LightRAG instance.
     Manages initialization, lifecycle, and provides convenience methods.
+    Includes BM25 index for hybrid (keyword + vector) search.
     """
 
     _instance = None  # LightRAG instance
     _initialized = False
+    _bm25_index: Optional[BM25Index] = None
 
     @classmethod
     async def initialize(cls):
@@ -212,6 +312,11 @@ class LightRAGEngine:
 
             cls._instance = rag
             cls._initialized = True
+
+            # Build BM25 index from existing chunks
+            cls._bm25_index = BM25Index()
+            cls._bm25_index.build_from_kv_store(working_dir)
+
             logger.info("✅ LightRAG engine initialized successfully!")
             return rag
         except Exception as e:
@@ -269,6 +374,68 @@ class LightRAGEngine:
             return f"[LightRAG Error] Không thể truy xuất thông tin từ cơ sở tri thức: {str(e)}"
 
     @classmethod
+    async def hybrid_query(
+        cls,
+        query: str,
+        bm25_top_k: int = 10,
+        lightrag_mode: str = "hybrid",
+        rrf_k: int = 60,
+        **kwargs,
+    ) -> str:
+        """
+        Hybrid Search: combines BM25 keyword results with LightRAG graph+vector results
+        using Reciprocal Rank Fusion (RRF).
+
+        Args:
+            query: The search query text
+            bm25_top_k: Number of BM25 results to retrieve
+            lightrag_mode: LightRAG search mode (hybrid, local, global, etc.)
+            rrf_k: RRF constant (higher = more weight to lower-ranked results)
+
+        Returns:
+            Combined context string with both BM25 and LightRAG results
+        """
+        results_parts = []
+
+        # --- Part 1: LightRAG Graph+Vector Search ---
+        lightrag_context = await cls.query(
+            query=query,
+            mode=lightrag_mode,
+            only_need_context=True,
+            **kwargs,
+        )
+        if lightrag_context and not lightrag_context.startswith("[LightRAG Error]"):
+            results_parts.append("=== Knowledge Graph + Vector Search ===")
+            results_parts.append(lightrag_context)
+
+        # --- Part 2: BM25 Keyword Search ---
+        if cls._bm25_index and cls._bm25_index.is_ready:
+            bm25_results = cls._bm25_index.search(query, top_k=bm25_top_k)
+            if bm25_results:
+                results_parts.append("\n=== BM25 Keyword Search ===")
+                for i, result in enumerate(bm25_results[:5], 1):  # Top 5 BM25
+                    content_preview = result["content"][:500]
+                    results_parts.append(f"[BM25 #{i} | score={result['bm25_score']:.2f}]")
+                    results_parts.append(content_preview)
+                    results_parts.append("---")
+                logger.info(f"🔍 BM25 returned {len(bm25_results)} keyword matches")
+        else:
+            logger.info("⚠️ BM25 index not ready, using LightRAG results only")
+
+        if not results_parts:
+            return "Không tìm thấy thông tin liên quan trong cơ sở tri thức."
+
+        return "\n".join(results_parts)
+
+    @classmethod
+    def rebuild_bm25_index(cls):
+        """Rebuild BM25 index after new data is ingested."""
+        if cls._bm25_index is None:
+            cls._bm25_index = BM25Index()
+        cls._bm25_index.build_from_kv_store(lightrag_config.WORKING_DIR)
+        logger.info("🔄 BM25 index rebuilt")
+
+    @classmethod
     async def insert_text(cls, content: str):
         """
         Insert text content into LightRAG.
@@ -281,6 +448,8 @@ class LightRAGEngine:
         rag = await cls.get_instance()
         await rag.ainsert(content)
         logger.info(f"✅ Inserted text ({len(content)} chars) into LightRAG")
+        # Rebuild BM25 index to include the new content
+        cls.rebuild_bm25_index()
 
     @classmethod
     async def insert_batch(cls, contents: list[str]):

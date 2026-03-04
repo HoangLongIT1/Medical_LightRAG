@@ -1,13 +1,13 @@
 # Medical LightRAG — Multi-Agent Medical API
 
-Medical chatbot API powered by **LightRAG** (Graph + Vector RAG) with a multi-agent architecture built on **PocketFlow**.
+Medical chatbot API powered by **Hybrid Search** (BM25 + Vector + Knowledge Graph) with a multi-agent architecture built on **PocketFlow**.
 
 ## Architecture
 
 ```
 Layer 1 (Cognitive):  IngestQuery → ClinicalStateManager
 Layer 2 (Routing):    MasterMedicalRouter
-Layer 3 (Execution):  8 Specialist Agents → LightRAG Retrieval
+Layer 3 (Execution):  8 Specialist Agents → Hybrid Search (BM25 + Graph + Vector)
 Layer 4 (Output):     ComposeAnswer (+ Safety Disclaimer)
 Layer 5 (Memory):     MemoryManager → Add/Update/Delete
 ```
@@ -35,7 +35,9 @@ Responses involving medication (dosage, drug names, contraindications) or sensit
 
 - **Backend**: FastAPI + Uvicorn
 - **RAG Engine**: LightRAG (Graph + Vector retrieval via `lightrag-hku`)
+- **Hybrid Search**: BM25 keyword matching (`rank-bm25`) + Graph + Vector
 - **LLM**: Google Gemini (`google-genai`)
+- **Embedding**: `gemini-embedding-001`
 - **Agent Framework**: PocketFlow
 - **Database**: PostgreSQL (chat history, clinical states, user auth)
 - **Tracing**: Langfuse (optional)
@@ -76,7 +78,18 @@ docker-compose up --build -d
 
 ### Load Data into LightRAG
 
-After the server is running:
+```bash
+# Optional: Add context headers for better retrieval accuracy
+python scripts/contextualize_json.py --input-dir data/processed/ --output-dir data/contextualized/
+
+# Ingest JSON data into LightRAG (auto-builds BM25 index)
+python scripts/ingest_json_to_lightrag.py
+
+# Verify Hybrid Search is working
+python scripts/verify_hybrid_search.py
+```
+
+Or use the API:
 
 1. Open API docs: `http://localhost:8000/api/docs`
 2. Use `POST /api/lightrag/documents/text` to insert medical documents
@@ -117,15 +130,19 @@ See `.env.local` for full list.
 │   │   ├── ClinicalStateManager.py   # Symptom tracking (Layer 1)
 │   │   ├── MasterMedicalRouter.py    # Intent routing (Layer 2)
 │   │   ├── SpecialistAgents.py       # 8 specialist agents (Layer 3)
-│   │   ├── RetrieveFromKBWithDemuc.py # LightRAG retrieval
+│   │   ├── RetrieveFromKBWithDemuc.py # Hybrid Search retrieval
 │   │   └── ComposeAnswer.py          # Response generation + safety disclaimer
 │   └── flows/
 │       ├── medical_flow.py           # Basic medical flow
 │       └── advanced_medical_flow.py  # Full 5-layer pipeline (9 routes)
 ├── config/                 # Configuration modules
 ├── database/               # SQLAlchemy models & DB setup
+├── scripts/
+│   ├── ingest_json_to_lightrag.py   # JSON data ingestion
+│   ├── contextualize_json.py        # Contextual Retrieval preprocessor
+│   └── verify_hybrid_search.py      # Hybrid Search verification
 ├── utils/
-│   ├── lightrag_engine.py  # LightRAG singleton wrapper
+│   ├── lightrag_engine.py  # LightRAG singleton + BM25Index
 │   └── llm/                # LLM utilities & prompts
 └── start_api.py            # Application entry point
 ```

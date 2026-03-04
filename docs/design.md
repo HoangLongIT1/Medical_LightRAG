@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **AdvancedMedicalFlow** is a 5-layer multi-agent system for medical consultations, powered by LightRAG (Graph + Vector RAG) and PocketFlow. It routes queries to **8 specialist agents** and includes a **safety disclaimer layer** for medication and sensitive content.
+The **AdvancedMedicalFlow** is a 5-layer multi-agent system for medical consultations, powered by **Hybrid Search** (BM25 + Vector + Knowledge Graph) and PocketFlow. It routes queries to **8 specialist agents** and includes a **safety disclaimer layer** for medication and sensitive content.
 
 ## Architecture
 
@@ -65,8 +65,16 @@ flowchart TD
 **Specialist Agents** → **RetrieveFromKBWithDemuc**
 
 - Each specialist rewrites the query with domain-specific context
-- Optimized query is sent to LightRAG (hybrid mode: graph + vector)
-- Retrieved context stored in `shared["retrieved_context"]`
+- Optimized query is sent to the **Hybrid Search pipeline** which runs simultaneously:
+  1. **BM25 Keyword Search** — exact term matching (drug names, rare diseases)
+  2. **LightRAG Graph+Vector** — semantic similarity + entity relationship traversal
+- Results from both sources are merged and stored in `shared["retrieved_context"]`
+
+```
+Query → ┌─ BM25 (exact keywords) ──────────┐
+        │                                   ├─→ Merged Context → ComposeAnswer
+        └─ LightRAG (graph + vectors) ─────┘
+```
 
 ### Layer 4: Output Layer
 **ComposeAnswer** (+ Safety Disclaimer)
@@ -141,9 +149,19 @@ shared = {
 |---------|--------|---------|
 | `call_llm` | `utils/llm/call_llm.py` | LLM calls with retry and fast mode |
 | `LightRAGEngine` | `utils/lightrag_engine.py` | LightRAG singleton with Gemini integration |
+| `BM25Index` | `utils/lightrag_engine.py` | BM25 keyword index for hybrid search |
+| `hybrid_query()` | `utils/lightrag_engine.py` | Combines BM25 + Graph+Vector search |
 | `parse_json_from_llm` | `utils/parsing/response_parser.py` | JSON extraction from LLM responses |
 | `compare_symptoms` | `core/nodes/ClinicalStateManager.py` | Old vs new symptom comparison |
 | `load_chat_history_from_db` | `core/nodes/ClinicalStateManager.py` | PostgreSQL chat history loading |
+
+## Data Pipeline
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/contextualize_json.py` | Add AI-generated context headers to JSON (Contextual Retrieval) |
+| `scripts/ingest_json_to_lightrag.py` | Ingest JSON documents into LightRAG + auto-rebuild BM25 |
+| `scripts/verify_hybrid_search.py` | Verify BM25 + Graph + Vector pipeline end-to-end |
 
 ## Database Tables
 

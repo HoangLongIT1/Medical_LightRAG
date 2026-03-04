@@ -44,8 +44,7 @@ class RetrieveFromKBWithDemuc(Node):
 
         logger.info(f"📚 [RetrieveFromKBWithDemuc] Querying LightRAG with: '{retrieve_query[:80]}...'")
 
-        # Use LightRAG hybrid search (graph + vector combined)
-        # only_need_context=True returns raw context without LLM generation
+        # Use Hybrid Search: BM25 keyword + LightRAG graph+vector
         try:
             loop = asyncio.get_event_loop()
             if loop.is_running():
@@ -54,27 +53,21 @@ class RetrieveFromKBWithDemuc(Node):
                 with concurrent.futures.ThreadPoolExecutor() as pool:
                     context = pool.submit(
                         asyncio.run,
-                        LightRAGEngine.query(
+                        LightRAGEngine.hybrid_query(
                             query=retrieve_query,
-                            mode="hybrid",
-                            only_need_context=True,
                         )
                     ).result()
             else:
                 context = loop.run_until_complete(
-                    LightRAGEngine.query(
+                    LightRAGEngine.hybrid_query(
                         query=retrieve_query,
-                        mode="hybrid",
-                        only_need_context=True,
                     )
                 )
         except RuntimeError:
             # No event loop exists
             context = asyncio.run(
-                LightRAGEngine.query(
+                LightRAGEngine.hybrid_query(
                     query=retrieve_query,
-                    mode="hybrid",
-                    only_need_context=True,
                 )
             )
 
