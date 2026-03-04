@@ -1,13 +1,66 @@
 # src/utils/llm/prompts_advanced.py
 """
 Advanced prompts for the multi-agent medical system.
-Includes Clinical State Manager, Master Router, and Specialist Agent prompts.
+Includes Safety Guardrails, Clinical State Manager, Master Router, and Specialist Agent prompts.
 """
 
 # ============================================================================
-# CLINICAL STATE PROMPT (Layer 1)
-# Enhanced with chat history and symptom comparison logic
+# SAFETY GUARDRAIL PROMPT (Layer 0 — Hard Safety Gate)
+# Blocks dangerous queries BEFORE they reach the medical pipeline
 # ============================================================================
+
+SAFETY_GUARDRAIL_PROMPT = """
+Bạn là hệ thống PHÂN LOẠI AN TOÀN cho chatbot y tế.
+Nhiệm vụ DUY NHẤT: Đánh giá tin nhắn người dùng có chứa ý định nguy hiểm hay không.
+
+=== CÁC HÀNH VI NGUY HIỂM (PHẢI BLOCK) ===
+1. TỰ GÂY HẠI / TỰ TỬ:
+   - Muốn tự tử, muốn chết, muốn kết thúc cuộc sống
+   - Hỏi cách tự gây hại bản thân
+   - Hỏi liều thuốc gây tử vong / liều chết người
+   - Hỏi loại thuốc nào uống nhiều sẽ chết
+
+2. GÂY HẠI NGƯỜI KHÁC:
+   - Hỏi cách đầu độc ai đó
+   - Hỏi thuốc hoặc chất gây hại cho người khác
+   - Hỏi cách pha chế chất độc, thuốc mê bất hợp pháp
+   - Hỏi liều thuốc gây bất tỉnh hoặc tử vong cho người khác
+
+3. CHẾ TẠO CHẤT ĐỘC / MA TÚY:
+   - Hỏi công thức pha chế chất độc, thuốc nổ, chất cấm
+   - Hỏi cách tổng hợp ma túy, chất gây nghiện bất hợp pháp
+   - Hỏi nguyên liệu để chế tạo chất độc từ thuốc thông thường
+
+4. LẠM DỤNG THUỐC CỐ Ý:
+   - Hỏi cách dùng thuốc quá liều cố ý (không phải do nhầm lẫn)
+   - Hỏi cách trộn thuốc để tạo tác dụng gây hại
+   - Hỏi cách mua thuốc kê đơn bất hợp pháp để lạm dụng
+
+=== CÁC HÀNH VI AN TOÀN (KHÔNG BLOCK) ===
+- Hỏi về liều dùng thuốc đúng cách (mục đích điều trị)
+- Hỏi về tác dụng phụ, chống chỉ định (mục đích phòng ngừa)
+- Hỏi về quá liều do nhầm lẫn (VD: "Con tôi lỡ uống quá liều, phải làm sao?")
+- Hỏi về triệu chứng ngộ độc để SƠ CỨU (VD: "Bị ngộ độc thực phẩm phải làm gì?")
+- Hỏi về thuốc, bệnh, triệu chứng với mục đích y khoa chính đáng
+- Nói về stress, buồn, mệt mỏi (KHÔNG có ý định tự hại)
+
+=== INPUT ===
+Tin nhắn người dùng: "{user_input}"
+
+=== OUTPUT FORMAT (JSON only) ===
+{{
+    "classification": "SAFE | WARN | BLOCK",
+    "reason": "Lý do ngắn gọn",
+    "threat_type": "none | self_harm | harm_others | poison_creation | drug_abuse"
+}}
+
+QUY TẮC:
+- "SAFE": Tin nhắn hoàn toàn an toàn, cho phép tiếp tục.
+- "WARN": Tin nhắn nhạy cảm nhưng có thể là mục đích y khoa chính đáng (VD: hỏi về quá liều để sơ cứu). Cho phép tiếp tục NHƯNG đánh dấu cần theo dõi.
+- "BLOCK": Tin nhắn rõ ràng có ý định gây hại. CHẶN ngay lập tức.
+
+CHÚ Ý: Trả về JSON thuần túy, KHÔNG có markdown code fence. Khi nghi ngờ giữa SAFE và WARN, chọn WARN. Khi nghi ngờ giữa WARN và BLOCK, chọn BLOCK.
+"""
 
 CLINICAL_STATE_PROMPT = """
 Bạn là Trợ lý Y khoa AI chuyên theo dõi trạng thái lâm sàng (Clinical State Tracking).

@@ -2,13 +2,15 @@
 
 ## Overview
 
-The **AdvancedMedicalFlow** is a 5-layer multi-agent system for medical consultations, powered by **Hybrid Search** (BM25 + Vector + Knowledge Graph) and PocketFlow. It routes queries to **8 specialist agents** and includes a **safety disclaimer layer** for medication and sensitive content.
+The **AdvancedMedicalFlow** is a 6-layer multi-agent system for medical consultations, powered by **Hybrid Search** (BM25 + Vector + Knowledge Graph) and PocketFlow. It routes queries to **8 specialist agents** and includes **hard safety guardrails** (Layer 0) and a **soft safety disclaimer layer** for medication and sensitive content.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-    A["IngestQuery<br/>📝 Input Processing"] --> B["ClinicalStateManager<br/>🏥 Symptom Tracking"]
+    SAFETY["SafetyGuardrailNode<br/>🛡️ Hard Safety Gate"] -->|"safe"| A["IngestQuery<br/>📝 Input Processing"]
+    SAFETY -->|"blocked"| BLOCK["⛔ Blocked Response<br/>Hotline + Refusal"]
+    A --> B["ClinicalStateManager<br/>🏥 Symptom Tracking"]
     B --> C["MasterMedicalRouter<br/>🧭 Intent & Specialist Routing"]
     
     C -->|"noi_khoa"| D1["InternalMedicineAgent<br/>💊 Nội Khoa"]
@@ -37,6 +39,15 @@ flowchart TD
 ```
 
 ## Layer Design
+
+### Layer 0: Safety Guardrail (Hard Gate)
+**SafetyGuardrailNode**
+
+- Classifies every user input as **SAFE**, **WARN**, or **BLOCK**
+- Uses LLM to detect: self-harm, harming others, poison creation, drug abuse
+- **BLOCK** → immediately returns hardcoded safety response with emergency hotlines, skips entire pipeline
+- **WARN** → allows through but flags for monitoring
+- **SAFE** → normal flow continues
 
 ### Layer 1: Cognitive Layer
 **IngestQuery** → **ClinicalStateManager**

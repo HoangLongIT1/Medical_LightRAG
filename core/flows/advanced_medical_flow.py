@@ -4,9 +4,10 @@ Advanced Medical Flow (Full Multi-Agent Pipeline)
 
 Architecture:
 
+Layer 0 (Safety):    SafetyGuardrailNode (Hard safety gate)
 Layer 1 (Cognitive): IngestQuery → ClinicalStateManager
 Layer 2 (Routing):   MasterMedicalRouter
-Layer 3 (Execution): 8 Specialist Agents → RetrieveFromKBWithDemuc (LightRAG)
+Layer 3 (Execution): 8 Specialist Agents → RetrieveFromKBWithDemuc (Hybrid Search)
 Layer 4 (Output):    ComposeAnswer (with safety disclaimer)
 Layer 5 (Memory):    MemoryManager → Add/Update/Delete Memory
 
@@ -24,6 +25,9 @@ Specialist routes:
 
 import logging
 from core.pocketflow import Flow
+
+# --- LAYER 0: Safety Guardrail ---
+from core.nodes.SafetyGuardrailNode import SafetyGuardrailNode
 
 # --- LAYER 1: Cognitive Layer ---
 from core.nodes.IngestQuery import IngestQuery
@@ -64,6 +68,9 @@ class AdvancedMedicalFlow(Flow):
         # 1. INITIALIZE ALL NODES
         # =============================================
         
+        # Layer 0: Safety Guardrail (Hard safety gate)
+        safety_gate = SafetyGuardrailNode(max_retries=1, wait=0)
+        
         # Layer 1: Cognitive
         ingest = IngestQuery()
         state_manager = ClinicalStateManager(max_retries=2, wait=1)
@@ -81,7 +88,7 @@ class AdvancedMedicalFlow(Flow):
         dermatology = DermatologyAgent(max_retries=2, wait=1)
         psychiatry = PsychiatryAgent(max_retries=2, wait=1)
         
-        # Layer 3: LightRAG Retrieval
+        # Layer 3: LightRAG Retrieval (Hybrid Search)
         retrieve = RetrieveFromKBWithDemuc()
         
         # Layer 4: Output
@@ -98,6 +105,12 @@ class AdvancedMedicalFlow(Flow):
         # 2. DEFINE FLOW EDGES
         # =============================================
         
+        # Layer 0: Safety gate
+        # "safe" → continue to normal pipeline
+        # "blocked" → skip everything, answer is already set
+        safety_gate - "safe" >> ingest
+        safety_gate - "blocked" >> None  # Flow ends, answer already in shared
+
         # Layer 1 → Layer 2: Cognitive pipeline
         ingest >> state_manager >> master_router
 
@@ -146,6 +159,6 @@ class AdvancedMedicalFlow(Flow):
         compose - "fallback" >> fallback
 
         # =============================================
-        # 3. SET START NODE
+        # 3. SET START NODE (Safety Gate is the entry point)
         # =============================================
-        super().__init__(start=ingest)
+        super().__init__(start=safety_gate)
